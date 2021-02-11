@@ -31,15 +31,19 @@ Partial Class suggestions
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.yeartxt = New System.Windows.Forms.TextBox()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.gndivisiontxt = New System.Windows.Forms.TextBox()
+        Me.divisiontxt = New System.Windows.Forms.TextBox()
+        Me.suggestiontxt = New System.Windows.Forms.TextBox()
+        Me.coordinatortxt = New System.Windows.Forms.TextBox()
+        Me.mobiletext = New System.Windows.Forms.TextBox()
+        Me.categorycombo = New System.Windows.Forms.ComboBox()
+        Me.completecombo = New System.Windows.Forms.ComboBox()
+        Me.Exitbtn = New System.Windows.Forms.Button()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.resetbtn = New System.Windows.Forms.Button()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -115,82 +119,112 @@ Partial Class suggestions
         Me.Label8.TabIndex = 7
         Me.Label8.Text = "Category"
         '
-        'TextBox1
+        'yeartxt
         '
-        Me.TextBox1.Location = New System.Drawing.Point(137, 28)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(211, 23)
-        Me.TextBox1.TabIndex = 8
+        Me.yeartxt.Location = New System.Drawing.Point(137, 28)
+        Me.yeartxt.Name = "yeartxt"
+        Me.yeartxt.Size = New System.Drawing.Size(211, 23)
+        Me.yeartxt.TabIndex = 8
         '
-        'TextBox2
+        'gndivisiontxt
         '
-        Me.TextBox2.Location = New System.Drawing.Point(137, 72)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(211, 23)
-        Me.TextBox2.TabIndex = 9
+        Me.gndivisiontxt.Location = New System.Drawing.Point(137, 113)
+        Me.gndivisiontxt.Name = "gndivisiontxt"
+        Me.gndivisiontxt.Size = New System.Drawing.Size(211, 23)
+        Me.gndivisiontxt.TabIndex = 10
+        Me.ToolTip1.SetToolTip(Me.gndivisiontxt, "Grama Niladhari Division")
         '
-        'TextBox3
+        'divisiontxt
         '
-        Me.TextBox3.Location = New System.Drawing.Point(137, 113)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(211, 23)
-        Me.TextBox3.TabIndex = 10
-        Me.ToolTip1.SetToolTip(Me.TextBox3, "Grama Niladhari Division")
+        Me.divisiontxt.Location = New System.Drawing.Point(137, 72)
+        Me.divisiontxt.Name = "divisiontxt"
+        Me.divisiontxt.Size = New System.Drawing.Size(211, 23)
+        Me.divisiontxt.TabIndex = 9
         '
-        'TextBox4
+        'suggestiontxt
         '
-        Me.TextBox4.Location = New System.Drawing.Point(519, 113)
-        Me.TextBox4.Multiline = True
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.TextBox4.Size = New System.Drawing.Size(211, 120)
-        Me.TextBox4.TabIndex = 11
+        Me.suggestiontxt.Location = New System.Drawing.Point(519, 113)
+        Me.suggestiontxt.Multiline = True
+        Me.suggestiontxt.Name = "suggestiontxt"
+        Me.suggestiontxt.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.suggestiontxt.Size = New System.Drawing.Size(211, 120)
+        Me.suggestiontxt.TabIndex = 11
         '
-        'TextBox5
+        'coordinatortxt
         '
-        Me.TextBox5.Location = New System.Drawing.Point(519, 28)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(211, 23)
-        Me.TextBox5.TabIndex = 12
+        Me.coordinatortxt.Location = New System.Drawing.Point(519, 28)
+        Me.coordinatortxt.Name = "coordinatortxt"
+        Me.coordinatortxt.Size = New System.Drawing.Size(211, 23)
+        Me.coordinatortxt.TabIndex = 12
         '
-        'TextBox6
+        'mobiletext
         '
-        Me.TextBox6.Location = New System.Drawing.Point(519, 69)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(211, 23)
-        Me.TextBox6.TabIndex = 13
+        Me.mobiletext.Location = New System.Drawing.Point(519, 69)
+        Me.mobiletext.Name = "mobiletext"
+        Me.mobiletext.Size = New System.Drawing.Size(211, 23)
+        Me.mobiletext.TabIndex = 13
         '
-        'ComboBox1
+        'categorycombo
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"Bridges/Foot Bridges", "Concrete", "Irrigation", "Other", "Welfare"})
-        Me.ComboBox1.Location = New System.Drawing.Point(137, 198)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(211, 23)
-        Me.ComboBox1.TabIndex = 15
+        Me.categorycombo.FormattingEnabled = True
+        Me.categorycombo.Items.AddRange(New Object() {"Bridges/Foot Bridges", "Concrete", "Irrigation", "Other", "Welfare"})
+        Me.categorycombo.Location = New System.Drawing.Point(137, 198)
+        Me.categorycombo.Name = "categorycombo"
+        Me.categorycombo.Size = New System.Drawing.Size(211, 23)
+        Me.categorycombo.TabIndex = 15
         '
-        'ComboBox2
+        'completecombo
         '
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Items.AddRange(New Object() {"No", "Yes"})
-        Me.ComboBox2.Location = New System.Drawing.Point(137, 155)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(211, 23)
-        Me.ComboBox2.TabIndex = 16
+        Me.completecombo.FormattingEnabled = True
+        Me.completecombo.Items.AddRange(New Object() {"No", "Yes"})
+        Me.completecombo.Location = New System.Drawing.Point(137, 155)
+        Me.completecombo.Name = "completecombo"
+        Me.completecombo.Size = New System.Drawing.Size(211, 23)
+        Me.completecombo.TabIndex = 16
+        '
+        'Exitbtn
+        '
+        Me.Exitbtn.Location = New System.Drawing.Point(655, 257)
+        Me.Exitbtn.Name = "Exitbtn"
+        Me.Exitbtn.Size = New System.Drawing.Size(75, 23)
+        Me.Exitbtn.TabIndex = 17
+        Me.Exitbtn.Text = "Exit"
+        Me.Exitbtn.UseVisualStyleBackColor = True
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(28, 299)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.RowTemplate.Height = 25
+        Me.DataGridView1.Size = New System.Drawing.Size(744, 169)
+        Me.DataGridView1.TabIndex = 18
+        '
+        'resetbtn
+        '
+        Me.resetbtn.Location = New System.Drawing.Point(536, 257)
+        Me.resetbtn.Name = "resetbtn"
+        Me.resetbtn.Size = New System.Drawing.Size(75, 23)
+        Me.resetbtn.TabIndex = 19
+        Me.resetbtn.Text = "Reset"
+        Me.resetbtn.UseVisualStyleBackColor = True
         '
         'suggestions
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.ComboBox2)
-        Me.Controls.Add(Me.ComboBox1)
-        Me.Controls.Add(Me.TextBox6)
-        Me.Controls.Add(Me.TextBox5)
-        Me.Controls.Add(Me.TextBox4)
-        Me.Controls.Add(Me.TextBox3)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.TextBox1)
+        Me.ClientSize = New System.Drawing.Size(800, 480)
+        Me.Controls.Add(Me.resetbtn)
+        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.Exitbtn)
+        Me.Controls.Add(Me.completecombo)
+        Me.Controls.Add(Me.categorycombo)
+        Me.Controls.Add(Me.mobiletext)
+        Me.Controls.Add(Me.coordinatortxt)
+        Me.Controls.Add(Me.suggestiontxt)
+        Me.Controls.Add(Me.gndivisiontxt)
+        Me.Controls.Add(Me.divisiontxt)
+        Me.Controls.Add(Me.yeartxt)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label6)
@@ -201,6 +235,7 @@ Partial Class suggestions
         Me.Controls.Add(Me.Label1)
         Me.Name = "suggestions"
         Me.Text = "Add/Edit Suggestion"
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -215,12 +250,15 @@ Partial Class suggestions
     Friend WithEvents Label6 As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents Label8 As Label
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents TextBox4 As TextBox
-    Friend WithEvents TextBox5 As TextBox
-    Friend WithEvents TextBox6 As TextBox
-    Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents ComboBox2 As ComboBox
+    Friend WithEvents yeartxt As TextBox
+    Friend WithEvents divisiontxt As TextBox
+    Friend WithEvents gndivisiontxt As TextBox
+    Friend WithEvents suggestiontxt As TextBox
+    Friend WithEvents coordinatortxt As TextBox
+    Friend WithEvents mobiletext As TextBox
+    Friend WithEvents categorycombo As ComboBox
+    Friend WithEvents completecombo As ComboBox
+    Friend WithEvents Exitbtn As Button
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents resetbtn As Button
 End Class
