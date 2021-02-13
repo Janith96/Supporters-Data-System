@@ -1,6 +1,48 @@
 ﻿Imports System.Data.SQLite
 Public Class suggestions
     Dim vyear, vdivision, vgndivision, vcomplete, vcategory, vcoordinator, vmobile, vsuggestion As String
+
+    Dim rowid As String
+    Dim editrowid As String
+
+    Private Sub Updatebtn_Click(sender As Object, e As EventArgs) Handles Updatebtn.Click
+
+        Dim sqlconnection As New SQLiteConnection("Data Source = C:\Users\janit\Desktop\Suggestions.db")
+
+        Try
+            If sqlconnection.State = ConnectionState.Closed Then
+                sqlconnection.Open()
+                Dim sqlstatement As String = "UPDATE `Suggestions` SET `Year` = '" & yeartxt.Text & "', `Division` = '" & divisiontxt.Text & "', `GN Division` = '" & gndivisiontxt.Text & "', `Category` = '" & categorycombo.Text & "', `Coordinator` = '" & coordinatortxt.Text & "', `MobileNo` = '" & mobiletext.Text & "', `Suggestion` = '" & suggestiontxt.Text & "', `Complete` = '" & completecombo.Text & "' WHERE `Suggestions`.`SuggestionID` = '" & editrowid & "';"
+
+                Dim cmd As SQLiteCommand = New SQLiteCommand
+
+                With cmd
+                    .CommandText = sqlstatement
+                    .CommandType = CommandType.Text
+                    .Connection = sqlconnection
+                    .ExecuteNonQuery()
+
+                End With
+                sqlconnection.Close()
+                MsgBox("Successfully Updated!")
+                Updatebtn.Enabled = False
+                Savebtn.Enabled = True
+                resetbtn_Click(Nothing, Nothing)
+                suggestions_Load(Nothing, Nothing)
+
+            Else
+                sqlconnection.Close()
+                MsgBox("Connection Error!", "Error")
+
+            End If
+
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
+
+
+    End Sub
+
     Private Sub resetbtn_Click(sender As Object, e As EventArgs) Handles resetbtn.Click
         Dim txt As Control
         For Each txt In Me.Controls 'panel.controls if in a group
@@ -22,7 +64,7 @@ Public Class suggestions
     End Sub
 
     Private Sub suggestions_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'getting database
+        'loading table to datagrid
         Dim conn As New SQLiteConnection("Data Source = C:\Users\janit\Desktop\Suggestions.db")
         conn.Open()
 
@@ -39,7 +81,7 @@ Public Class suggestions
         DataGridView1.DataSource = sqldt
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles addrecordbtn.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Savebtn.Click
 
         Dim sqlconnection As New SQLiteConnection("Data Source = C:\Users\janit\Desktop\Suggestions.db")
 
@@ -59,6 +101,9 @@ Public Class suggestions
                 End With
                 sqlconnection.Close()
                 MsgBox("Successfully recorded!")
+                Updatebtn.Enabled = False
+                Savebtn.Enabled = True
+                resetbtn_Click(Nothing, Nothing)
                 suggestions_Load(Nothing, Nothing)
 
             Else
@@ -80,6 +125,9 @@ Public Class suggestions
     Private Sub Edit_Click(sender As Object, e As EventArgs) Handles Edit.Click
 
         If AllCellsSelected(DataGridView1) = False Then
+            Dim localrowid As String
+            localrowid = rowid
+            editrowid = localrowid
             yeartxt.Text = vyear
             divisiontxt.Text = vdivision
             gndivisiontxt.Text = vgndivision
@@ -88,6 +136,10 @@ Public Class suggestions
             coordinatortxt.Text = vcoordinator
             mobiletext.Text = vmobile
             suggestiontxt.Text = vsuggestion
+
+
+            Updatebtn.Enabled = True
+            Savebtn.Enabled = False
         Else
             MsgBox("Multiple rows selected! Please choose one row to edit.", MsgBoxStyle.Critical, "Failed!")
         End If
@@ -113,6 +165,7 @@ Public Class suggestions
                         vcoordinator = .Rows(i).Cells("Coordinator").Value.ToString
                         vmobile = .Rows(i).Cells("MobileNo").Value.ToString
                         vsuggestion = .Rows(i).Cells("Suggestion").Value.ToString
+                        rowid = .Rows(i).Cells("SuggestionID").Value.ToString
 
                     End If
                 End With

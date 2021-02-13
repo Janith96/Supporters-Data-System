@@ -48,7 +48,8 @@ Partial Class suggestions
         Me.Delete = New System.Windows.Forms.ToolStripMenuItem()
         Me.SelectAll = New System.Windows.Forms.ToolStripMenuItem()
         Me.resetbtn = New System.Windows.Forms.Button()
-        Me.addrecordbtn = New System.Windows.Forms.Button()
+        Me.Savebtn = New System.Windows.Forms.Button()
+        Me.Updatebtn = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -131,14 +132,14 @@ Partial Class suggestions
         Me.yeartxt.Location = New System.Drawing.Point(137, 28)
         Me.yeartxt.Name = "yeartxt"
         Me.yeartxt.Size = New System.Drawing.Size(211, 23)
-        Me.yeartxt.TabIndex = 8
+        Me.yeartxt.TabIndex = 1
         '
         'gndivisiontxt
         '
         Me.gndivisiontxt.Location = New System.Drawing.Point(137, 113)
         Me.gndivisiontxt.Name = "gndivisiontxt"
         Me.gndivisiontxt.Size = New System.Drawing.Size(211, 23)
-        Me.gndivisiontxt.TabIndex = 10
+        Me.gndivisiontxt.TabIndex = 3
         Me.ToolTip1.SetToolTip(Me.gndivisiontxt, "Grama Niladhari Division")
         '
         'divisiontxt
@@ -146,7 +147,7 @@ Partial Class suggestions
         Me.divisiontxt.Location = New System.Drawing.Point(137, 72)
         Me.divisiontxt.Name = "divisiontxt"
         Me.divisiontxt.Size = New System.Drawing.Size(211, 23)
-        Me.divisiontxt.TabIndex = 9
+        Me.divisiontxt.TabIndex = 2
         '
         'suggestiontxt
         '
@@ -155,39 +156,41 @@ Partial Class suggestions
         Me.suggestiontxt.Name = "suggestiontxt"
         Me.suggestiontxt.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.suggestiontxt.Size = New System.Drawing.Size(211, 120)
-        Me.suggestiontxt.TabIndex = 11
+        Me.suggestiontxt.TabIndex = 8
         '
         'coordinatortxt
         '
         Me.coordinatortxt.Location = New System.Drawing.Point(519, 28)
         Me.coordinatortxt.Name = "coordinatortxt"
         Me.coordinatortxt.Size = New System.Drawing.Size(211, 23)
-        Me.coordinatortxt.TabIndex = 12
+        Me.coordinatortxt.TabIndex = 6
         '
         'mobiletext
         '
         Me.mobiletext.Location = New System.Drawing.Point(519, 69)
         Me.mobiletext.Name = "mobiletext"
         Me.mobiletext.Size = New System.Drawing.Size(211, 23)
-        Me.mobiletext.TabIndex = 13
+        Me.mobiletext.TabIndex = 7
         '
         'categorycombo
         '
+        Me.categorycombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.categorycombo.FormattingEnabled = True
         Me.categorycombo.Items.AddRange(New Object() {"Bridges/Foot Bridges", "Concrete", "Irrigation", "Other", "Welfare"})
         Me.categorycombo.Location = New System.Drawing.Point(137, 198)
         Me.categorycombo.Name = "categorycombo"
         Me.categorycombo.Size = New System.Drawing.Size(211, 23)
-        Me.categorycombo.TabIndex = 15
+        Me.categorycombo.TabIndex = 5
         '
         'completecombo
         '
+        Me.completecombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.completecombo.FormattingEnabled = True
         Me.completecombo.Items.AddRange(New Object() {"No", "Yes"})
         Me.completecombo.Location = New System.Drawing.Point(137, 155)
         Me.completecombo.Name = "completecombo"
         Me.completecombo.Size = New System.Drawing.Size(211, 23)
-        Me.completecombo.TabIndex = 16
+        Me.completecombo.TabIndex = 4
         '
         'Exitbtn
         '
@@ -246,21 +249,32 @@ Partial Class suggestions
         Me.resetbtn.Text = "Reset"
         Me.resetbtn.UseVisualStyleBackColor = True
         '
-        'addrecordbtn
+        'Savebtn
         '
-        Me.addrecordbtn.Location = New System.Drawing.Point(414, 257)
-        Me.addrecordbtn.Name = "addrecordbtn"
-        Me.addrecordbtn.Size = New System.Drawing.Size(95, 23)
-        Me.addrecordbtn.TabIndex = 20
-        Me.addrecordbtn.Text = "Add Record"
-        Me.addrecordbtn.UseVisualStyleBackColor = True
+        Me.Savebtn.Location = New System.Drawing.Point(414, 257)
+        Me.Savebtn.Name = "Savebtn"
+        Me.Savebtn.Size = New System.Drawing.Size(95, 23)
+        Me.Savebtn.TabIndex = 9
+        Me.Savebtn.Text = "Save"
+        Me.Savebtn.UseVisualStyleBackColor = True
+        '
+        'Updatebtn
+        '
+        Me.Updatebtn.Enabled = False
+        Me.Updatebtn.Location = New System.Drawing.Point(304, 256)
+        Me.Updatebtn.Name = "Updatebtn"
+        Me.Updatebtn.Size = New System.Drawing.Size(75, 23)
+        Me.Updatebtn.TabIndex = 10
+        Me.Updatebtn.Text = "Update"
+        Me.Updatebtn.UseVisualStyleBackColor = True
         '
         'suggestions
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 480)
-        Me.Controls.Add(Me.addrecordbtn)
+        Me.Controls.Add(Me.Updatebtn)
+        Me.Controls.Add(Me.Savebtn)
         Me.Controls.Add(Me.resetbtn)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Exitbtn)
@@ -309,9 +323,10 @@ Partial Class suggestions
     Friend WithEvents Exitbtn As Button
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents resetbtn As Button
-    Friend WithEvents addrecordbtn As Button
+    Friend WithEvents Savebtn As Button
     Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
     Friend WithEvents Edit As ToolStripMenuItem
     Friend WithEvents Delete As ToolStripMenuItem
     Friend WithEvents SelectAll As ToolStripMenuItem
+    Friend WithEvents Updatebtn As Button
 End Class
