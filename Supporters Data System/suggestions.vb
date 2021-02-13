@@ -1,5 +1,6 @@
 ﻿Imports System.Data.SQLite
 Public Class suggestions
+    Dim vyear, vdivision, vgndivision, vcomplete, vcategory, vcoordinator, vmobile, vsuggestion As String
     Private Sub resetbtn_Click(sender As Object, e As EventArgs) Handles resetbtn.Click
         Dim txt As Control
         For Each txt In Me.Controls 'panel.controls if in a group
@@ -71,4 +72,53 @@ Public Class suggestions
         End Try
 
     End Sub
+
+    Private Function AllCellsSelected(dgv As DataGridView) As Boolean
+        AllCellsSelected = (DataGridView1.SelectedCells.Count = (DataGridView1.RowCount * DataGridView1.Columns.GetColumnCount(DataGridViewElementStates.Visible)))
+    End Function
+
+    Private Sub Edit_Click(sender As Object, e As EventArgs) Handles Edit.Click
+
+        If AllCellsSelected(DataGridView1) = False Then
+            yeartxt.Text = vyear
+            divisiontxt.Text = vdivision
+            gndivisiontxt.Text = vgndivision
+            completecombo.SelectedItem = vcomplete
+            categorycombo.SelectedItem = vcategory
+            coordinatortxt.Text = vcoordinator
+            mobiletext.Text = vmobile
+            suggestiontxt.Text = vsuggestion
+        Else
+            MsgBox("Multiple rows selected! Please choose one row to edit.", MsgBoxStyle.Critical, "Failed!")
+        End If
+    End Sub
+
+
+    Private Sub DataGridView1_CellMouseDown(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView1.CellMouseDown
+
+
+        If AllCellsSelected(DataGridView1) = False Then
+            If e.Button = MouseButtons.Right Then
+                DataGridView1.CurrentCell = DataGridView1(e.ColumnIndex, e.RowIndex)
+                Dim i As Integer
+                With DataGridView1
+                    If e.RowIndex >= 0 Then
+                        i = .CurrentRow.Index
+
+                        vyear = .Rows(i).Cells("Year").Value.ToString
+                        vdivision = .Rows(i).Cells("Division").Value.ToString
+                        vgndivision = .Rows(i).Cells("GN Division").Value.ToString
+                        vcomplete = .Rows(i).Cells("Complete").Value.ToString
+                        vcategory = .Rows(i).Cells("Category").Value.ToString
+                        vcoordinator = .Rows(i).Cells("Coordinator").Value.ToString
+                        vmobile = .Rows(i).Cells("MobileNo").Value.ToString
+                        vsuggestion = .Rows(i).Cells("Suggestion").Value.ToString
+
+                    End If
+                End With
+            End If
+        End If
+    End Sub
+
+
 End Class
