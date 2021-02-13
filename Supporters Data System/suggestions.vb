@@ -38,4 +38,37 @@ Public Class suggestions
         DataGridView1.DataSource = sqldt
     End Sub
 
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles addrecordbtn.Click
+
+        Dim sqlconnection As New SQLiteConnection("Data Source = C:\Users\janit\Desktop\Suggestions.db")
+
+        Try
+            If sqlconnection.State = ConnectionState.Closed Then
+                sqlconnection.Open()
+                Dim sqlstatement As String = "INSERT INTO `Suggestions` (`Year`, `Division`, `GN Division`, `Category`, `Coordinator`, `MobileNo`, `Suggestion`, `Complete`) VALUES ('" & yeartxt.Text & "', '" & divisiontxt.Text & "', '" & gndivisiontxt.Text & "', '" & categorycombo.Text & "', '" & coordinatortxt.Text & "', '" & mobiletext.Text & "', '" & suggestiontxt.Text & "', '" & completecombo.Text & "');"
+
+                Dim cmd As SQLiteCommand = New SQLiteCommand
+
+                With cmd
+                    .CommandText = sqlstatement
+                    .CommandType = CommandType.Text
+                    .Connection = sqlconnection
+                    .ExecuteNonQuery()
+
+                End With
+                sqlconnection.Close()
+                MsgBox("Successfully recorded!")
+                suggestions_Load(Nothing, Nothing)
+
+            Else
+                sqlconnection.Close()
+                MsgBox("Connection Error!", "Error")
+
+            End If
+
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
+
+    End Sub
 End Class

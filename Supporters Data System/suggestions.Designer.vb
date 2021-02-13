@@ -43,7 +43,7 @@ Partial Class suggestions
         Me.Exitbtn = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.resetbtn = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.addrecordbtn = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -210,21 +210,21 @@ Partial Class suggestions
         Me.resetbtn.Text = "Reset"
         Me.resetbtn.UseVisualStyleBackColor = True
         '
-        'Button1
+        'addrecordbtn
         '
-        Me.Button1.Location = New System.Drawing.Point(414, 257)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 20
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.addrecordbtn.Location = New System.Drawing.Point(390, 257)
+        Me.addrecordbtn.Name = "addrecordbtn"
+        Me.addrecordbtn.Size = New System.Drawing.Size(95, 23)
+        Me.addrecordbtn.TabIndex = 20
+        Me.addrecordbtn.Text = "Add Record"
+        Me.addrecordbtn.UseVisualStyleBackColor = True
         '
         'suggestions
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 480)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.addrecordbtn)
         Me.Controls.Add(Me.resetbtn)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Exitbtn)
@@ -272,5 +272,5 @@ Partial Class suggestions
     Friend WithEvents Exitbtn As Button
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents resetbtn As Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents addrecordbtn As Button
 End Class
