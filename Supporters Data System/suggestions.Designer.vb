@@ -23,6 +23,7 @@ Partial Class suggestions
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(suggestions))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -42,9 +43,14 @@ Partial Class suggestions
         Me.completecombo = New System.Windows.Forms.ComboBox()
         Me.Exitbtn = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.Edit = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Delete = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SelectAll = New System.Windows.Forms.ToolStripMenuItem()
         Me.resetbtn = New System.Windows.Forms.Button()
         Me.addrecordbtn = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ContextMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -195,15 +201,45 @@ Partial Class suggestions
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.ContextMenuStrip = Me.ContextMenuStrip1
         Me.DataGridView1.Location = New System.Drawing.Point(28, 299)
         Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowTemplate.Height = 25
+        Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridView1.Size = New System.Drawing.Size(744, 169)
         Me.DataGridView1.TabIndex = 18
         '
+        'ContextMenuStrip1
+        '
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Edit, Me.Delete, Me.SelectAll})
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(123, 70)
+        '
+        'Edit
+        '
+        Me.Edit.Image = CType(resources.GetObject("Edit.Image"), System.Drawing.Image)
+        Me.Edit.Name = "Edit"
+        Me.Edit.Size = New System.Drawing.Size(122, 22)
+        Me.Edit.Text = "Edit"
+        '
+        'Delete
+        '
+        Me.Delete.Image = CType(resources.GetObject("Delete.Image"), System.Drawing.Image)
+        Me.Delete.Name = "Delete"
+        Me.Delete.Size = New System.Drawing.Size(122, 22)
+        Me.Delete.Text = "Delete"
+        '
+        'SelectAll
+        '
+        Me.SelectAll.Image = CType(resources.GetObject("SelectAll.Image"), System.Drawing.Image)
+        Me.SelectAll.Name = "SelectAll"
+        Me.SelectAll.Size = New System.Drawing.Size(122, 22)
+        Me.SelectAll.Text = "Select All"
+        '
         'resetbtn
         '
-        Me.resetbtn.Location = New System.Drawing.Point(536, 257)
+        Me.resetbtn.Location = New System.Drawing.Point(549, 257)
         Me.resetbtn.Name = "resetbtn"
         Me.resetbtn.Size = New System.Drawing.Size(75, 23)
         Me.resetbtn.TabIndex = 19
@@ -212,7 +248,7 @@ Partial Class suggestions
         '
         'addrecordbtn
         '
-        Me.addrecordbtn.Location = New System.Drawing.Point(390, 257)
+        Me.addrecordbtn.Location = New System.Drawing.Point(414, 257)
         Me.addrecordbtn.Name = "addrecordbtn"
         Me.addrecordbtn.Size = New System.Drawing.Size(95, 23)
         Me.addrecordbtn.TabIndex = 20
@@ -247,6 +283,7 @@ Partial Class suggestions
         Me.Name = "suggestions"
         Me.Text = "Add/Edit Suggestion"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ContextMenuStrip1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -273,4 +310,8 @@ Partial Class suggestions
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents resetbtn As Button
     Friend WithEvents addrecordbtn As Button
+    Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
+    Friend WithEvents Edit As ToolStripMenuItem
+    Friend WithEvents Delete As ToolStripMenuItem
+    Friend WithEvents SelectAll As ToolStripMenuItem
 End Class
