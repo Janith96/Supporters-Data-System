@@ -50,6 +50,7 @@ Partial Class suggestions
         Me.resetbtn = New System.Windows.Forms.Button()
         Me.Savebtn = New System.Windows.Forms.Button()
         Me.Updatebtn = New System.Windows.Forms.Button()
+        Me.Deletebtn = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -246,7 +247,7 @@ Partial Class suggestions
         Me.resetbtn.Name = "resetbtn"
         Me.resetbtn.Size = New System.Drawing.Size(75, 23)
         Me.resetbtn.TabIndex = 19
-        Me.resetbtn.Text = "Reset"
+        Me.resetbtn.Text = "Clear"
         Me.resetbtn.UseVisualStyleBackColor = True
         '
         'Savebtn
@@ -261,18 +262,28 @@ Partial Class suggestions
         'Updatebtn
         '
         Me.Updatebtn.Enabled = False
-        Me.Updatebtn.Location = New System.Drawing.Point(304, 256)
+        Me.Updatebtn.Location = New System.Drawing.Point(304, 257)
         Me.Updatebtn.Name = "Updatebtn"
         Me.Updatebtn.Size = New System.Drawing.Size(75, 23)
         Me.Updatebtn.TabIndex = 10
         Me.Updatebtn.Text = "Update"
         Me.Updatebtn.UseVisualStyleBackColor = True
         '
+        'Deletebtn
+        '
+        Me.Deletebtn.Location = New System.Drawing.Point(183, 256)
+        Me.Deletebtn.Name = "Deletebtn"
+        Me.Deletebtn.Size = New System.Drawing.Size(75, 23)
+        Me.Deletebtn.TabIndex = 20
+        Me.Deletebtn.Text = "Delete"
+        Me.Deletebtn.UseVisualStyleBackColor = True
+        '
         'suggestions
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 480)
+        Me.Controls.Add(Me.Deletebtn)
         Me.Controls.Add(Me.Updatebtn)
         Me.Controls.Add(Me.Savebtn)
         Me.Controls.Add(Me.resetbtn)
@@ -329,4 +340,5 @@ Partial Class suggestions
     Friend WithEvents Delete As ToolStripMenuItem
     Friend WithEvents SelectAll As ToolStripMenuItem
     Friend WithEvents Updatebtn As Button
+    Friend WithEvents Deletebtn As Button
 End Class

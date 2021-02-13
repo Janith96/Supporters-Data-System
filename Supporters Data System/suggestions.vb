@@ -43,6 +43,88 @@ Public Class suggestions
 
     End Sub
 
+    Private Sub Deletebtn_Click(sender As Object, e As EventArgs) Handles Deletebtn.Click
+        Dim sqlconnection As New SQLiteConnection("Data Source = C:\Users\janit\Desktop\Suggestions.db")
+
+        If DataGridView1.RowCount = 0 Then
+            MsgBox("Cannot delete, table data is empty!", MsgBoxStyle.Critical, "Failed")
+            Return
+        End If
+
+        If DataGridView1.SelectedRows.Count = 0 Then
+            MsgBox("Cannot delete, select the table data to be deleted!", MsgBoxStyle.Critical, "Failed!")
+            Return
+        End If
+
+        If MsgBox("Delete record?", MsgBoxStyle.Question + MsgBoxStyle.OkCancel, "Confirmation") = MsgBoxResult.Cancel Then Return
+
+        Try
+            If AllCellsSelected(DataGridView1) = True Then
+                If sqlconnection.State = ConnectionState.Closed Then
+                    sqlconnection.Open()
+
+                    Dim sqlstatement As String = "DELETE From Suggestions"
+
+                    Dim cmd As SQLiteCommand = New SQLiteCommand
+
+                    With cmd
+                        .CommandText = sqlstatement
+                        .CommandType = CommandType.Text
+                        .Connection = sqlconnection
+                        .ExecuteNonQuery()
+
+                    End With
+                    sqlconnection.Close()
+                    MsgBox("Successfully Updated!")
+                    Updatebtn.Enabled = False
+                    Savebtn.Enabled = True
+                    resetbtn_Click(Nothing, Nothing)
+                    suggestions_Load(Nothing, Nothing)
+                    Return
+                Else
+                    sqlconnection.Close()
+                    MsgBox("Connection Error!", "Error")
+
+                End If
+            End If
+
+            For Each row As DataGridViewRow In DataGridView1.SelectedRows
+                If row.Selected = True Then
+                    If sqlconnection.State = ConnectionState.Closed Then
+                        sqlconnection.Open()
+
+                        Dim sqlstatement As String = "Delete from Suggestions where SuggestionID='" & rowid & "'"
+
+                        Dim cmd As SQLiteCommand = New SQLiteCommand
+
+                        With cmd
+                            .CommandText = sqlstatement
+                            .CommandType = CommandType.Text
+                            .Connection = sqlconnection
+                            .ExecuteNonQuery()
+
+                        End With
+                        sqlconnection.Close()
+                        MsgBox("Successfully Updated!")
+                        Updatebtn.Enabled = False
+                        Savebtn.Enabled = True
+                        resetbtn_Click(Nothing, Nothing)
+                        suggestions_Load(Nothing, Nothing)
+                    Else
+                        sqlconnection.Close()
+                        MsgBox("Connection Error!", "Error")
+
+                    End If
+                End If
+            Next
+
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
+
+
+    End Sub
+
     Private Sub resetbtn_Click(sender As Object, e As EventArgs) Handles resetbtn.Click
         Dim txt As Control
         For Each txt In Me.Controls 'panel.controls if in a group
