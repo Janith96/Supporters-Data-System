@@ -51,6 +51,8 @@ Partial Class suggestions
         Me.Savebtn = New System.Windows.Forms.Button()
         Me.Updatebtn = New System.Windows.Forms.Button()
         Me.Deletebtn = New System.Windows.Forms.Button()
+        Me.Searchtb = New System.Windows.Forms.TextBox()
+        Me.Searchselectcmb = New System.Windows.Forms.ComboBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -195,9 +197,9 @@ Partial Class suggestions
         '
         'Exitbtn
         '
-        Me.Exitbtn.Location = New System.Drawing.Point(655, 257)
+        Me.Exitbtn.Location = New System.Drawing.Point(872, 249)
         Me.Exitbtn.Name = "Exitbtn"
-        Me.Exitbtn.Size = New System.Drawing.Size(75, 23)
+        Me.Exitbtn.Size = New System.Drawing.Size(88, 44)
         Me.Exitbtn.TabIndex = 17
         Me.Exitbtn.Text = "Exit"
         Me.Exitbtn.UseVisualStyleBackColor = True
@@ -206,12 +208,12 @@ Partial Class suggestions
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.ContextMenuStrip = Me.ContextMenuStrip1
-        Me.DataGridView1.Location = New System.Drawing.Point(28, 299)
+        Me.DataGridView1.Location = New System.Drawing.Point(12, 316)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowTemplate.Height = 25
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(744, 169)
+        Me.DataGridView1.Size = New System.Drawing.Size(948, 218)
         Me.DataGridView1.TabIndex = 18
         '
         'ContextMenuStrip1
@@ -243,18 +245,18 @@ Partial Class suggestions
         '
         'resetbtn
         '
-        Me.resetbtn.Location = New System.Drawing.Point(549, 257)
+        Me.resetbtn.Location = New System.Drawing.Point(127, 249)
         Me.resetbtn.Name = "resetbtn"
-        Me.resetbtn.Size = New System.Drawing.Size(75, 23)
+        Me.resetbtn.Size = New System.Drawing.Size(88, 44)
         Me.resetbtn.TabIndex = 19
         Me.resetbtn.Text = "Clear"
         Me.resetbtn.UseVisualStyleBackColor = True
         '
         'Savebtn
         '
-        Me.Savebtn.Location = New System.Drawing.Point(414, 257)
+        Me.Savebtn.Location = New System.Drawing.Point(750, 249)
         Me.Savebtn.Name = "Savebtn"
-        Me.Savebtn.Size = New System.Drawing.Size(95, 23)
+        Me.Savebtn.Size = New System.Drawing.Size(88, 44)
         Me.Savebtn.TabIndex = 9
         Me.Savebtn.Text = "Save"
         Me.Savebtn.UseVisualStyleBackColor = True
@@ -262,27 +264,47 @@ Partial Class suggestions
         'Updatebtn
         '
         Me.Updatebtn.Enabled = False
-        Me.Updatebtn.Location = New System.Drawing.Point(304, 257)
+        Me.Updatebtn.Location = New System.Drawing.Point(631, 249)
         Me.Updatebtn.Name = "Updatebtn"
-        Me.Updatebtn.Size = New System.Drawing.Size(75, 23)
+        Me.Updatebtn.Size = New System.Drawing.Size(88, 44)
         Me.Updatebtn.TabIndex = 10
         Me.Updatebtn.Text = "Update"
         Me.Updatebtn.UseVisualStyleBackColor = True
         '
         'Deletebtn
         '
-        Me.Deletebtn.Location = New System.Drawing.Point(183, 256)
+        Me.Deletebtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Deletebtn.Location = New System.Drawing.Point(12, 249)
         Me.Deletebtn.Name = "Deletebtn"
-        Me.Deletebtn.Size = New System.Drawing.Size(75, 23)
+        Me.Deletebtn.Size = New System.Drawing.Size(88, 44)
         Me.Deletebtn.TabIndex = 20
         Me.Deletebtn.Text = "Delete"
         Me.Deletebtn.UseVisualStyleBackColor = True
+        '
+        'Searchtb
+        '
+        Me.Searchtb.Location = New System.Drawing.Point(248, 270)
+        Me.Searchtb.Name = "Searchtb"
+        Me.Searchtb.Size = New System.Drawing.Size(349, 23)
+        Me.Searchtb.TabIndex = 21
+        '
+        'Searchselectcmb
+        '
+        Me.Searchselectcmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.Searchselectcmb.FormattingEnabled = True
+        Me.Searchselectcmb.Items.AddRange(New Object() {"All", "Year", "Division", "GN Division", "Complete", "Category", "Coordinator", "Mobile No.", "Suggestion"})
+        Me.Searchselectcmb.Location = New System.Drawing.Point(248, 241)
+        Me.Searchselectcmb.Name = "Searchselectcmb"
+        Me.Searchselectcmb.Size = New System.Drawing.Size(349, 23)
+        Me.Searchselectcmb.TabIndex = 22
         '
         'suggestions
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 480)
+        Me.ClientSize = New System.Drawing.Size(974, 546)
+        Me.Controls.Add(Me.Searchselectcmb)
+        Me.Controls.Add(Me.Searchtb)
         Me.Controls.Add(Me.Deletebtn)
         Me.Controls.Add(Me.Updatebtn)
         Me.Controls.Add(Me.Savebtn)
@@ -341,4 +363,6 @@ Partial Class suggestions
     Friend WithEvents SelectAll As ToolStripMenuItem
     Friend WithEvents Updatebtn As Button
     Friend WithEvents Deletebtn As Button
+    Friend WithEvents Searchtb As TextBox
+    Friend WithEvents Searchselectcmb As ComboBox
 End Class

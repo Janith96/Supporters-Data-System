@@ -4,6 +4,7 @@ Public Class suggestions
 
     Dim rowid As String
     Dim editrowid As String
+    Dim searchtype As String
 
     Private Sub Updatebtn_Click(sender As Object, e As EventArgs) Handles Updatebtn.Click
 
@@ -42,6 +43,8 @@ Public Class suggestions
 
 
     End Sub
+
+
 
     Private Sub Deletebtn_Click(sender As Object, e As EventArgs) Handles Deletebtn.Click
         Dim sqlconnection As New SQLiteConnection("Data Source = C:\Users\janit\Desktop\Suggestions.db")
@@ -133,12 +136,8 @@ Public Class suggestions
             End If
         Next
 
-        Dim combo As Control
-        For Each combo In Me.Controls
-            If TypeOf combo Is ComboBox Then
-                combo.Text = ""
-            End If
-        Next
+        completecombo.SelectedIndex = -1
+        categorycombo.SelectedIndex = -1
     End Sub
 
     Private Sub Exitbtn_Click(sender As Object, e As EventArgs) Handles Exitbtn.Click
@@ -161,6 +160,7 @@ Public Class suggestions
         conn.Close()
 
         DataGridView1.DataSource = sqldt
+        Searchselectcmb.SelectedIndex = 0
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Savebtn.Click
@@ -255,5 +255,39 @@ Public Class suggestions
         End If
     End Sub
 
+    Private Sub Delete_Click(sender As Object, e As EventArgs) Handles Delete.Click
+        Deletebtn_Click(Nothing, Nothing)
+    End Sub
 
+    Private Sub SelectAll_Click(sender As Object, e As EventArgs) Handles SelectAll.Click
+        DataGridView1.SelectAll()
+    End Sub
+
+
+
+    Private Sub Searchselectcmb_SelectedValueChanged(sender As Object, e As EventArgs) Handles Searchselectcmb.SelectedValueChanged
+        searchtype = Searchselectcmb.Text
+    End Sub
+
+    Private Sub Searchtb_TextChanged(sender As Object, e As EventArgs) Handles Searchtb.TextChanged
+        Dim conn As New SQLiteConnection("Data Source = C:\Users\janit\Desktop\Suggestions.db")
+        conn.Open()
+
+        Dim sqlcmd As New SQLiteCommand
+        sqlcmd.Connection = conn
+        If Searchselectcmb.SelectedIndex = 0 Then
+            sqlcmd.CommandText = "SELECT * FROM Suggestions WHERE Year LIKE '%" & Searchtb.Text & "%' OR Division LIKE '%" & Searchtb.Text & "%' OR 'GN Division' LIKE '%" & Searchtb.Text & "%' OR Category LIKE '%" & Searchtb.Text & "%' OR Coordinator LIKE '%" & Searchtb.Text & "%' OR MobileNo LIKE '%" & Searchtb.Text & "%' OR Suggestion LIKE '%" & Searchtb.Text & "%' OR Complete LIKE '%" & Searchtb.Text & "%'"
+        Else
+            sqlcmd.CommandText = "Select * from Suggestions where " & searchtype & " like '%" & Searchtb.Text & "%'"
+        End If
+
+
+        Dim sqlread As SQLiteDataReader = sqlcmd.ExecuteReader
+        Dim sqldt As New DataTable
+        sqldt.Load(sqlread)
+        sqlread.Close()
+        conn.Close()
+
+        DataGridView1.DataSource = sqldt
+    End Sub
 End Class
