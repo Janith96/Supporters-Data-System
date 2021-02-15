@@ -53,8 +53,12 @@ Partial Class suggestions
         Me.Deletebtn = New System.Windows.Forms.Button()
         Me.Searchtb = New System.Windows.Forms.TextBox()
         Me.Searchselectcmb = New System.Windows.Forms.ComboBox()
+        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
+        Me.ToolStripStatusTotalRecords = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolStripStatusSelectedRecords = New System.Windows.Forms.ToolStripStatusLabel()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
+        Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -210,7 +214,6 @@ Partial Class suggestions
         Me.DataGridView1.ContextMenuStrip = Me.ContextMenuStrip1
         Me.DataGridView1.Location = New System.Drawing.Point(12, 316)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowTemplate.Height = 25
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridView1.Size = New System.Drawing.Size(948, 218)
@@ -298,11 +301,36 @@ Partial Class suggestions
         Me.Searchselectcmb.Size = New System.Drawing.Size(349, 23)
         Me.Searchselectcmb.TabIndex = 22
         '
+        'StatusStrip1
+        '
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusTotalRecords, Me.ToolStripStatusSelectedRecords})
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 536)
+        Me.StatusStrip1.Name = "StatusStrip1"
+        Me.StatusStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.StatusStrip1.Size = New System.Drawing.Size(974, 22)
+        Me.StatusStrip1.TabIndex = 23
+        Me.StatusStrip1.Text = "StatusStrip1"
+        '
+        'ToolStripStatusTotalRecords
+        '
+        Me.ToolStripStatusTotalRecords.Name = "ToolStripStatusTotalRecords"
+        Me.ToolStripStatusTotalRecords.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.ToolStripStatusTotalRecords.Size = New System.Drawing.Size(86, 17)
+        Me.ToolStripStatusTotalRecords.Text = "Total Records : "
+        '
+        'ToolStripStatusSelectedRecords
+        '
+        Me.ToolStripStatusSelectedRecords.Name = "ToolStripStatusSelectedRecords"
+        Me.ToolStripStatusSelectedRecords.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.ToolStripStatusSelectedRecords.Size = New System.Drawing.Size(105, 17)
+        Me.ToolStripStatusSelectedRecords.Text = "Selected Records : "
+        '
         'suggestions
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(974, 546)
+        Me.ClientSize = New System.Drawing.Size(974, 558)
+        Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.Searchselectcmb)
         Me.Controls.Add(Me.Searchtb)
         Me.Controls.Add(Me.Deletebtn)
@@ -331,6 +359,8 @@ Partial Class suggestions
         Me.Text = "Add/Edit Suggestion"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ContextMenuStrip1.ResumeLayout(False)
+        Me.StatusStrip1.ResumeLayout(False)
+        Me.StatusStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -365,4 +395,7 @@ Partial Class suggestions
     Friend WithEvents Deletebtn As Button
     Friend WithEvents Searchtb As TextBox
     Friend WithEvents Searchselectcmb As ComboBox
+    Friend WithEvents StatusStrip1 As StatusStrip
+    Friend WithEvents ToolStripStatusTotalRecords As ToolStripStatusLabel
+    Friend WithEvents ToolStripStatusSelectedRecords As ToolStripStatusLabel
 End Class

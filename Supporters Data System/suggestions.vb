@@ -159,8 +159,25 @@ Public Class suggestions
         sqlread.Close()
         conn.Close()
 
+        'checkbox column generate
+        Dim checkBoxColumn As New DataGridViewCheckBoxColumn()
+        checkBoxColumn.HeaderText = ""
+        checkBoxColumn.Width = 30
+        checkBoxColumn.Name = "checkBoxColumn"
+        DataGridView1.Columns.Insert(0, checkBoxColumn)
+
+        'loading datagrid and setting seachcombo to all
         DataGridView1.DataSource = sqldt
         Searchselectcmb.SelectedIndex = 0
+
+        'making checkbox editable
+        For Each dc As DataGridViewColumn In DataGridView1.Columns
+            If dc.Index.Equals(0) Then
+                dc.ReadOnly = False
+            Else
+                dc.ReadOnly = True
+            End If
+        Next
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Savebtn.Click
