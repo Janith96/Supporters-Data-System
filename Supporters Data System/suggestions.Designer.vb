@@ -306,24 +306,26 @@ Partial Class suggestions
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusTotalRecords, Me.ToolStripStatusSelectedRecords})
         Me.StatusStrip1.Location = New System.Drawing.Point(0, 536)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.StatusStrip1.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.StatusStrip1.Size = New System.Drawing.Size(974, 22)
+        Me.StatusStrip1.SizingGrip = False
         Me.StatusStrip1.TabIndex = 23
         Me.StatusStrip1.Text = "StatusStrip1"
         '
         'ToolStripStatusTotalRecords
         '
         Me.ToolStripStatusTotalRecords.Name = "ToolStripStatusTotalRecords"
+        Me.ToolStripStatusTotalRecords.Padding = New System.Windows.Forms.Padding(17, 0, 0, 0)
         Me.ToolStripStatusTotalRecords.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.ToolStripStatusTotalRecords.Size = New System.Drawing.Size(86, 17)
-        Me.ToolStripStatusTotalRecords.Text = "Total Records : "
+        Me.ToolStripStatusTotalRecords.Size = New System.Drawing.Size(17, 17)
         '
         'ToolStripStatusSelectedRecords
         '
         Me.ToolStripStatusSelectedRecords.Name = "ToolStripStatusSelectedRecords"
         Me.ToolStripStatusSelectedRecords.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.ToolStripStatusSelectedRecords.Size = New System.Drawing.Size(105, 17)
-        Me.ToolStripStatusSelectedRecords.Text = "Selected Records : "
+        Me.ToolStripStatusSelectedRecords.Size = New System.Drawing.Size(942, 17)
+        Me.ToolStripStatusSelectedRecords.Spring = True
+        Me.ToolStripStatusSelectedRecords.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'suggestions
         '

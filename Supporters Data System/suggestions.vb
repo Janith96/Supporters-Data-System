@@ -149,6 +149,7 @@ Public Class suggestions
         Dim conn As New SQLiteConnection("Data Source = C:\Users\janit\Desktop\Suggestions.db")
         conn.Open()
 
+        'loading query
         Dim sqlcmd As New SQLiteCommand
         sqlcmd.Connection = conn
         sqlcmd.CommandText = "Select * from Suggestions"
@@ -157,6 +158,20 @@ Public Class suggestions
         Dim sqldt As New DataTable
         sqldt.Load(sqlread)
         sqlread.Close()
+
+        'rowcount query
+        Dim count As String
+        Dim sqlstatement As String = "Select COUNT(*) from Suggestions"
+        Dim cmd As SQLiteCommand = New SQLiteCommand
+        With cmd
+            .CommandText = sqlstatement
+            .CommandType = CommandType.Text
+            .Connection = conn
+            count = Convert.ToString(cmd.ExecuteScalar())
+            ToolStripStatusTotalRecords.Text = "Total Records : " & count & ""
+        End With
+
+
         conn.Close()
 
         'checkbox column generate
@@ -214,6 +229,10 @@ Public Class suggestions
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
+
+    End Sub
+
+    Private Sub StatusStrip1_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles StatusStrip1.ItemClicked
 
     End Sub
 
