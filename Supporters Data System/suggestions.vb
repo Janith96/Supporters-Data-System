@@ -1,4 +1,5 @@
-﻿Imports System.Data.SQLite
+﻿Imports System.ComponentModel
+Imports System.Data.SQLite
 Public Class suggestions
     Dim vyear, vdivision, vgndivision, vcomplete, vcategory, vcoordinator, vmobile, vsuggestion As String
 
@@ -140,7 +141,7 @@ Public Class suggestions
         categorycombo.SelectedIndex = -1
     End Sub
 
-    Private Sub Exitbtn_Click(sender As Object, e As EventArgs) Handles Exitbtn.Click
+    Private Sub Exitbtn_Click(sender As Object, e As EventArgs)
         Application.Exit()
     End Sub
 
@@ -175,24 +176,24 @@ Public Class suggestions
         conn.Close()
 
         'checkbox column generate
-        Dim checkBoxColumn As New DataGridViewCheckBoxColumn()
-        checkBoxColumn.HeaderText = ""
-        checkBoxColumn.Width = 30
-        checkBoxColumn.Name = "checkBoxColumn"
-        DataGridView1.Columns.Insert(0, checkBoxColumn)
+        'Dim checkBoxColumn As New DataGridViewCheckBoxColumn()
+        'checkBoxColumn.HeaderText = ""
+        'checkBoxColumn.Width = 30
+        'checkBoxColumn.Name = "checkBoxColumn"
+        'DataGridView1.Columns.Insert(0, checkBoxColumn)
 
         'loading datagrid and setting seachcombo to all
         DataGridView1.DataSource = sqldt
         Searchselectcmb.SelectedIndex = 0
 
         'making checkbox editable
-        For Each dc As DataGridViewColumn In DataGridView1.Columns
-            If dc.Index.Equals(0) Then
-                dc.ReadOnly = False
-            Else
-                dc.ReadOnly = True
-            End If
-        Next
+        'For Each dc As DataGridViewColumn In DataGridView1.Columns
+        'If dc.Index.Equals(0) Then
+        'dc.ReadOnly = False
+        'Else
+        'dc.ReadOnly = True
+        'End If
+        'Next
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Savebtn.Click
@@ -232,10 +233,6 @@ Public Class suggestions
 
     End Sub
 
-    Private Sub StatusStrip1_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles StatusStrip1.ItemClicked
-
-    End Sub
-
     Private Function AllCellsSelected(dgv As DataGridView) As Boolean
         AllCellsSelected = (DataGridView1.SelectedCells.Count = (DataGridView1.RowCount * DataGridView1.Columns.GetColumnCount(DataGridViewElementStates.Visible)))
     End Function
@@ -265,8 +262,6 @@ Public Class suggestions
 
 
     Private Sub DataGridView1_CellMouseDown(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView1.CellMouseDown
-
-
         If AllCellsSelected(DataGridView1) = False Then
             If e.Button = MouseButtons.Right Then
                 DataGridView1.CurrentCell = DataGridView1(e.ColumnIndex, e.RowIndex)

@@ -41,7 +41,6 @@ Partial Class suggestions
         Me.mobiletext = New System.Windows.Forms.TextBox()
         Me.categorycombo = New System.Windows.Forms.ComboBox()
         Me.completecombo = New System.Windows.Forms.ComboBox()
-        Me.Exitbtn = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.Edit = New System.Windows.Forms.ToolStripMenuItem()
@@ -64,7 +63,7 @@ Partial Class suggestions
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(37, 28)
+        Me.Label1.Location = New System.Drawing.Point(53, 28)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(29, 15)
         Me.Label1.TabIndex = 0
@@ -73,7 +72,7 @@ Partial Class suggestions
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(37, 72)
+        Me.Label2.Location = New System.Drawing.Point(53, 72)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(49, 15)
         Me.Label2.TabIndex = 1
@@ -82,7 +81,7 @@ Partial Class suggestions
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(37, 116)
+        Me.Label3.Location = New System.Drawing.Point(53, 116)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(69, 15)
         Me.Label3.TabIndex = 2
@@ -92,7 +91,7 @@ Partial Class suggestions
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(414, 157)
+        Me.Label4.Location = New System.Drawing.Point(510, 157)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(66, 15)
         Me.Label4.TabIndex = 3
@@ -101,7 +100,7 @@ Partial Class suggestions
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(414, 28)
+        Me.Label5.Location = New System.Drawing.Point(510, 28)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(71, 15)
         Me.Label5.TabIndex = 4
@@ -110,7 +109,7 @@ Partial Class suggestions
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(414, 72)
+        Me.Label6.Location = New System.Drawing.Point(510, 72)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(66, 15)
         Me.Label6.TabIndex = 5
@@ -119,7 +118,7 @@ Partial Class suggestions
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(37, 157)
+        Me.Label7.Location = New System.Drawing.Point(53, 157)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(59, 15)
         Me.Label7.TabIndex = 6
@@ -128,7 +127,7 @@ Partial Class suggestions
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(37, 201)
+        Me.Label8.Location = New System.Drawing.Point(53, 201)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(55, 15)
         Me.Label8.TabIndex = 7
@@ -136,47 +135,47 @@ Partial Class suggestions
         '
         'yeartxt
         '
-        Me.yeartxt.Location = New System.Drawing.Point(137, 28)
+        Me.yeartxt.Location = New System.Drawing.Point(153, 28)
         Me.yeartxt.Name = "yeartxt"
-        Me.yeartxt.Size = New System.Drawing.Size(211, 23)
+        Me.yeartxt.Size = New System.Drawing.Size(286, 23)
         Me.yeartxt.TabIndex = 1
         '
         'gndivisiontxt
         '
-        Me.gndivisiontxt.Location = New System.Drawing.Point(137, 113)
+        Me.gndivisiontxt.Location = New System.Drawing.Point(153, 113)
         Me.gndivisiontxt.Name = "gndivisiontxt"
-        Me.gndivisiontxt.Size = New System.Drawing.Size(211, 23)
+        Me.gndivisiontxt.Size = New System.Drawing.Size(286, 23)
         Me.gndivisiontxt.TabIndex = 3
         Me.ToolTip1.SetToolTip(Me.gndivisiontxt, "Grama Niladhari Division")
         '
         'divisiontxt
         '
-        Me.divisiontxt.Location = New System.Drawing.Point(137, 72)
+        Me.divisiontxt.Location = New System.Drawing.Point(153, 72)
         Me.divisiontxt.Name = "divisiontxt"
-        Me.divisiontxt.Size = New System.Drawing.Size(211, 23)
+        Me.divisiontxt.Size = New System.Drawing.Size(286, 23)
         Me.divisiontxt.TabIndex = 2
         '
         'suggestiontxt
         '
-        Me.suggestiontxt.Location = New System.Drawing.Point(519, 113)
+        Me.suggestiontxt.Location = New System.Drawing.Point(615, 113)
         Me.suggestiontxt.Multiline = True
         Me.suggestiontxt.Name = "suggestiontxt"
         Me.suggestiontxt.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.suggestiontxt.Size = New System.Drawing.Size(211, 120)
+        Me.suggestiontxt.Size = New System.Drawing.Size(286, 120)
         Me.suggestiontxt.TabIndex = 8
         '
         'coordinatortxt
         '
-        Me.coordinatortxt.Location = New System.Drawing.Point(519, 28)
+        Me.coordinatortxt.Location = New System.Drawing.Point(615, 28)
         Me.coordinatortxt.Name = "coordinatortxt"
-        Me.coordinatortxt.Size = New System.Drawing.Size(211, 23)
+        Me.coordinatortxt.Size = New System.Drawing.Size(286, 23)
         Me.coordinatortxt.TabIndex = 6
         '
         'mobiletext
         '
-        Me.mobiletext.Location = New System.Drawing.Point(519, 69)
+        Me.mobiletext.Location = New System.Drawing.Point(615, 69)
         Me.mobiletext.Name = "mobiletext"
-        Me.mobiletext.Size = New System.Drawing.Size(211, 23)
+        Me.mobiletext.Size = New System.Drawing.Size(286, 23)
         Me.mobiletext.TabIndex = 7
         '
         'categorycombo
@@ -184,9 +183,9 @@ Partial Class suggestions
         Me.categorycombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.categorycombo.FormattingEnabled = True
         Me.categorycombo.Items.AddRange(New Object() {"Bridges/Foot Bridges", "Concrete", "Irrigation", "Other", "Welfare"})
-        Me.categorycombo.Location = New System.Drawing.Point(137, 198)
+        Me.categorycombo.Location = New System.Drawing.Point(153, 198)
         Me.categorycombo.Name = "categorycombo"
-        Me.categorycombo.Size = New System.Drawing.Size(211, 23)
+        Me.categorycombo.Size = New System.Drawing.Size(286, 23)
         Me.categorycombo.TabIndex = 5
         '
         'completecombo
@@ -194,19 +193,10 @@ Partial Class suggestions
         Me.completecombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.completecombo.FormattingEnabled = True
         Me.completecombo.Items.AddRange(New Object() {"No", "Yes"})
-        Me.completecombo.Location = New System.Drawing.Point(137, 155)
+        Me.completecombo.Location = New System.Drawing.Point(153, 155)
         Me.completecombo.Name = "completecombo"
-        Me.completecombo.Size = New System.Drawing.Size(211, 23)
+        Me.completecombo.Size = New System.Drawing.Size(286, 23)
         Me.completecombo.TabIndex = 4
-        '
-        'Exitbtn
-        '
-        Me.Exitbtn.Location = New System.Drawing.Point(872, 249)
-        Me.Exitbtn.Name = "Exitbtn"
-        Me.Exitbtn.Size = New System.Drawing.Size(88, 44)
-        Me.Exitbtn.TabIndex = 17
-        Me.Exitbtn.Text = "Exit"
-        Me.Exitbtn.UseVisualStyleBackColor = True
         '
         'DataGridView1
         '
@@ -214,6 +204,7 @@ Partial Class suggestions
         Me.DataGridView1.ContextMenuStrip = Me.ContextMenuStrip1
         Me.DataGridView1.Location = New System.Drawing.Point(12, 316)
         Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowTemplate.Height = 25
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridView1.Size = New System.Drawing.Size(948, 218)
@@ -248,47 +239,58 @@ Partial Class suggestions
         '
         'resetbtn
         '
-        Me.resetbtn.Location = New System.Drawing.Point(127, 249)
+        Me.resetbtn.Image = Global.Supporters_Data_System.My.Resources.Resources.iconfinder_edit_clear_118917
+        Me.resetbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.resetbtn.Location = New System.Drawing.Point(127, 258)
         Me.resetbtn.Name = "resetbtn"
-        Me.resetbtn.Size = New System.Drawing.Size(88, 44)
+        Me.resetbtn.Size = New System.Drawing.Size(79, 44)
         Me.resetbtn.TabIndex = 19
         Me.resetbtn.Text = "Clear"
+        Me.resetbtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.resetbtn.UseVisualStyleBackColor = True
         '
         'Savebtn
         '
-        Me.Savebtn.Location = New System.Drawing.Point(750, 249)
+        Me.Savebtn.Image = Global.Supporters_Data_System.My.Resources.Resources.iconfinder_floppy_285657
+        Me.Savebtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Savebtn.Location = New System.Drawing.Point(881, 258)
         Me.Savebtn.Name = "Savebtn"
-        Me.Savebtn.Size = New System.Drawing.Size(88, 44)
+        Me.Savebtn.Size = New System.Drawing.Size(79, 44)
         Me.Savebtn.TabIndex = 9
         Me.Savebtn.Text = "Save"
+        Me.Savebtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Savebtn.UseVisualStyleBackColor = True
         '
         'Updatebtn
         '
         Me.Updatebtn.Enabled = False
-        Me.Updatebtn.Location = New System.Drawing.Point(631, 249)
+        Me.Updatebtn.Image = Global.Supporters_Data_System.My.Resources.Resources.captcha
+        Me.Updatebtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Updatebtn.Location = New System.Drawing.Point(756, 258)
         Me.Updatebtn.Name = "Updatebtn"
-        Me.Updatebtn.Size = New System.Drawing.Size(88, 44)
+        Me.Updatebtn.Size = New System.Drawing.Size(95, 44)
         Me.Updatebtn.TabIndex = 10
         Me.Updatebtn.Text = "Update"
+        Me.Updatebtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Updatebtn.UseVisualStyleBackColor = True
         '
         'Deletebtn
         '
+        Me.Deletebtn.Image = Global.Supporters_Data_System.My.Resources.Resources.delete
         Me.Deletebtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Deletebtn.Location = New System.Drawing.Point(12, 249)
+        Me.Deletebtn.Location = New System.Drawing.Point(16, 258)
         Me.Deletebtn.Name = "Deletebtn"
-        Me.Deletebtn.Size = New System.Drawing.Size(88, 44)
+        Me.Deletebtn.Size = New System.Drawing.Size(80, 44)
         Me.Deletebtn.TabIndex = 20
         Me.Deletebtn.Text = "Delete"
+        Me.Deletebtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Deletebtn.UseVisualStyleBackColor = True
         '
         'Searchtb
         '
-        Me.Searchtb.Location = New System.Drawing.Point(248, 270)
+        Me.Searchtb.Location = New System.Drawing.Point(248, 282)
         Me.Searchtb.Name = "Searchtb"
-        Me.Searchtb.Size = New System.Drawing.Size(349, 23)
+        Me.Searchtb.Size = New System.Drawing.Size(467, 23)
         Me.Searchtb.TabIndex = 21
         '
         'Searchselectcmb
@@ -296,9 +298,9 @@ Partial Class suggestions
         Me.Searchselectcmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.Searchselectcmb.FormattingEnabled = True
         Me.Searchselectcmb.Items.AddRange(New Object() {"All", "Year", "Division", "GN Division", "Complete", "Category", "Coordinator", "Mobile No.", "Suggestion"})
-        Me.Searchselectcmb.Location = New System.Drawing.Point(248, 241)
+        Me.Searchselectcmb.Location = New System.Drawing.Point(248, 253)
         Me.Searchselectcmb.Name = "Searchselectcmb"
-        Me.Searchselectcmb.Size = New System.Drawing.Size(349, 23)
+        Me.Searchselectcmb.Size = New System.Drawing.Size(467, 23)
         Me.Searchselectcmb.TabIndex = 22
         '
         'StatusStrip1
@@ -340,7 +342,6 @@ Partial Class suggestions
         Me.Controls.Add(Me.Savebtn)
         Me.Controls.Add(Me.resetbtn)
         Me.Controls.Add(Me.DataGridView1)
-        Me.Controls.Add(Me.Exitbtn)
         Me.Controls.Add(Me.completecombo)
         Me.Controls.Add(Me.categorycombo)
         Me.Controls.Add(Me.mobiletext)
@@ -385,7 +386,6 @@ Partial Class suggestions
     Friend WithEvents mobiletext As TextBox
     Friend WithEvents categorycombo As ComboBox
     Friend WithEvents completecombo As ComboBox
-    Friend WithEvents Exitbtn As Button
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents resetbtn As Button
     Friend WithEvents Savebtn As Button
