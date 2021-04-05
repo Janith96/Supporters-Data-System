@@ -22,7 +22,7 @@ Partial Class Suggestions_Print
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.GroupBoxyear = New System.Windows.Forms.GroupBox()
         Me.allyearsradio = New System.Windows.Forms.RadioButton()
         Me.tolabel = New System.Windows.Forms.Label()
         Me.todtpick = New System.Windows.Forms.DateTimePicker()
@@ -56,29 +56,33 @@ Partial Class Suggestions_Print
         Me.gndivisionwiseradio = New System.Windows.Forms.RadioButton()
         Me.divisionviseradio = New System.Windows.Forms.RadioButton()
         Me.seatwiseradio = New System.Windows.Forms.RadioButton()
-        Me.GroupBox1.SuspendLayout()
+        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
+        Me.ToolStripTotalRecords = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.GroupBoxyear.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox5.SuspendLayout()
+        Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
-        'GroupBox1
+        'GroupBoxyear
         '
-        Me.GroupBox1.Controls.Add(Me.allyearsradio)
-        Me.GroupBox1.Controls.Add(Me.tolabel)
-        Me.GroupBox1.Controls.Add(Me.todtpick)
-        Me.GroupBox1.Controls.Add(Me.fromlabel)
-        Me.GroupBox1.Controls.Add(Me.fromdtpcik)
-        Me.GroupBox1.Controls.Add(Me.oneyeartxt)
-        Me.GroupBox1.Controls.Add(Me.fewyearsradio)
-        Me.GroupBox1.Controls.Add(Me.oneyearradio)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(322, 155)
-        Me.GroupBox1.TabIndex = 0
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "වර්ෂය"
+        Me.GroupBoxyear.Controls.Add(Me.allyearsradio)
+        Me.GroupBoxyear.Controls.Add(Me.tolabel)
+        Me.GroupBoxyear.Controls.Add(Me.todtpick)
+        Me.GroupBoxyear.Controls.Add(Me.fromlabel)
+        Me.GroupBoxyear.Controls.Add(Me.fromdtpcik)
+        Me.GroupBoxyear.Controls.Add(Me.oneyeartxt)
+        Me.GroupBoxyear.Controls.Add(Me.fewyearsradio)
+        Me.GroupBoxyear.Controls.Add(Me.oneyearradio)
+        Me.GroupBoxyear.Location = New System.Drawing.Point(12, 12)
+        Me.GroupBoxyear.Name = "GroupBoxyear"
+        Me.GroupBoxyear.Size = New System.Drawing.Size(322, 155)
+        Me.GroupBoxyear.TabIndex = 0
+        Me.GroupBoxyear.TabStop = False
+        Me.GroupBoxyear.Text = "වර්ෂය"
         '
         'allyearsradio
         '
@@ -350,10 +354,10 @@ Partial Class Suggestions_Print
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(12, 393)
+        Me.DataGridView1.Location = New System.Drawing.Point(12, 546)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowTemplate.Height = 25
-        Me.DataGridView1.Size = New System.Drawing.Size(916, 262)
+        Me.DataGridView1.Size = New System.Drawing.Size(916, 96)
         Me.DataGridView1.TabIndex = 6
         '
         'searchbtn
@@ -441,11 +445,36 @@ Partial Class Suggestions_Print
         Me.seatwiseradio.Text = "ආසන අනුව"
         Me.seatwiseradio.UseVisualStyleBackColor = True
         '
+        'StatusStrip1
+        '
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripTotalRecords})
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 645)
+        Me.StatusStrip1.Name = "StatusStrip1"
+        Me.StatusStrip1.Size = New System.Drawing.Size(940, 22)
+        Me.StatusStrip1.SizingGrip = False
+        Me.StatusStrip1.TabIndex = 11
+        Me.StatusStrip1.Text = "StatusStrip1"
+        '
+        'ToolStripTotalRecords
+        '
+        Me.ToolStripTotalRecords.Name = "ToolStripTotalRecords"
+        Me.ToolStripTotalRecords.Size = New System.Drawing.Size(0, 17)
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(45, 422)
+        Me.TextBox1.Multiline = True
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(762, 87)
+        Me.TextBox1.TabIndex = 12
+        '
         'Suggestions_Print
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(940, 667)
+        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.Printbtn)
         Me.Controls.Add(Me.Resetbtn)
@@ -453,11 +482,13 @@ Partial Class Suggestions_Print
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
-        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.GroupBoxyear)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "Suggestions_Print"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds
         Me.Text = "Print Suggestions"
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
+        Me.GroupBoxyear.ResumeLayout(False)
+        Me.GroupBoxyear.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
@@ -465,11 +496,14 @@ Partial Class Suggestions_Print
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox5.PerformLayout()
+        Me.StatusStrip1.ResumeLayout(False)
+        Me.StatusStrip1.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents GroupBoxyear As GroupBox
     Friend WithEvents allyearsradio As RadioButton
     Friend WithEvents Label2 As Label
     Friend WithEvents todtpick As DateTimePicker
@@ -504,4 +538,7 @@ Partial Class Suggestions_Print
     Friend WithEvents divisionviseradio As RadioButton
     Friend WithEvents seatwiseradio As RadioButton
     Friend WithEvents tolabel As Label
+    Friend WithEvents StatusStrip1 As StatusStrip
+    Friend WithEvents ToolStripTotalRecords As ToolStripStatusLabel
+    Friend WithEvents TextBox1 As TextBox
 End Class

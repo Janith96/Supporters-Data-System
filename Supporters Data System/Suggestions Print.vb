@@ -1,5 +1,40 @@
-﻿Public Class Suggestions_Print
+﻿Imports System.ComponentModel
+Imports System.Data.SQLite
+Public Class Suggestions_Print
+
     Private Sub Suggestions_Print_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        'loading table to datagrid
+        Dim conn As New SQLiteConnection("Data Source = C:\Users\janit\Desktop\Suggestions.db")
+        conn.Open()
+
+        'loading query
+        Dim sqlcmd As New SQLiteCommand
+        sqlcmd.Connection = conn
+        sqlcmd.CommandText = "Select * from Suggestions"
+
+        Dim sqlread As SQLiteDataReader = sqlcmd.ExecuteReader
+        Dim sqldt As New DataTable
+        sqldt.Load(sqlread)
+        sqlread.Close()
+
+        'rowcount query
+        Dim count As String
+        Dim sqlstatement As String = "Select COUNT(*) from Suggestions"
+        Dim cmd As SQLiteCommand = New SQLiteCommand
+        With cmd
+            .CommandText = sqlstatement
+            .CommandType = CommandType.Text
+            .Connection = conn
+            count = Convert.ToString(cmd.ExecuteScalar())
+            ToolStripTotalRecords.Text = "Total Records : " & count & ""
+        End With
+
+
+        conn.Close()
+
+        DataGridView1.DataSource = sqldt
+
 
         'checkbox defaults
         allyearsradio.Checked = True
@@ -124,4 +159,78 @@
     Private Sub gndivisionwiseradio_CheckedChanged(sender As Object, e As EventArgs) Handles gndivisionwiseradio.CheckedChanged
         selareabtn.Enabled = True
     End Sub
+
+    'search algo
+    Private Sub searchbtn_Click(sender As Object, e As EventArgs) Handles searchbtn.Click
+
+        Dim SQL As String = "Select * from suggestions where 1=1 "
+
+        'years check
+        If allareasradio.Checked = True Then
+
+        End If
+
+        If oneyearradio.Checked = True Then
+            SQL = SQL & "AND වර්ෂය=" & oneyeartxt.Text & ""
+        End If
+
+
+        If fewyearsradio.Checked = True Then
+            SQL = SQL & "AND වර්ෂය BETWEEN " & fromdtpcik.Text & " And " & todtpick.Text & ""
+        End If
+
+
+        'status check
+        If allstatusradio.Checked = True Then
+        End If
+
+        If fewsttatusradio.Checked = True Then
+            SQL = SQL & " AND තත්වය IN ("
+            For Each chkbox As CheckBox In Me.GroupBox3.Controls.OfType(Of CheckBox)()
+                If chkbox.Checked = True Then
+                    SQL = SQL & "'" & chkbox.Text & "',"
+                End If
+            Next
+        End If
+        'removing last comma
+        SQL = SQL.Substring(0, SQL.Length - 1)
+        SQL = SQL & ")"
+
+
+        'type check
+        If alltypesradio.Checked = True Then
+        End If
+
+        If fewtypesradio.Checked = True Then
+            SQL = SQL & " AND වර්ගය IN ("
+            For Each chkbox As CheckBox In Me.GroupBox2.Controls.OfType(Of CheckBox)()
+                If chkbox.Checked = True Then
+                    SQL = SQL & "" & chkbox.Text & ","
+                End If
+            Next
+        End If
+        'removing last comma
+        SQL = SQL.Substring(0, SQL.Length - 1)
+        'closing bracket
+        SQL = SQL & ")"
+
+
+        'For Each chkBox As CheckBox In GroupBoxyear.Controls
+        '    If chkBox.Checked = True Then
+        '        SQL = SQL & " AND Project.Sistem IN ( "
+        '        Exit For
+        '    End If
+        'Next
+        'For Each chkBox As CheckBox In GroupBoxyear.Controls
+        '    If chkBox.Checked = True Then
+        '        SQL = SQL & "'" & chkBox.Name & "',"
+        '    End If
+        'Next
+        'SQL = SQL.Substring(0, SQL.Length - 1)
+        'SQL = SQL & ")"
+
+        TextBox1.Text = SQL
+
+    End Sub
+
 End Class
