@@ -240,7 +240,16 @@ Public Class Suggestions_Print
             End If
         End If
 
-
+        If divisionviseradio.Checked = True Then
+            If selectedareascount > 0 Then
+                SQL = SQL & " AND කොට්ඨාශය IN ("
+                SQL = SQL & gettingselectedareas
+                SQL = SQL & ")"
+            Else
+                MessageBox.Show("කොට්ඨාශ කිසිවක් තෝරාගෙන නැත. කරැණාකර කොට්ඨාශ එකක් හෝ කීපයක් තෝරන්න.", "වැදගත්", MessageBoxButtons.OK, MessageBoxIcon.Question)
+                Return
+            End If
+        End If
 
 
 
