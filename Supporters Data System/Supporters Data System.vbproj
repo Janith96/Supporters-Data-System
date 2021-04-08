@@ -4,7 +4,7 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0-windows</TargetFramework>
     <RootNamespace>Supporters_Data_System</RootNamespace>
-    <StartupObject>Supporters_Data_System.suggestions</StartupObject>
+    <StartupObject>Supporters_Data_System.Suggestions_Print</StartupObject>
     <UseWindowsForms>true</UseWindowsForms>
     <MyType>WindowsForms</MyType>
     <Platforms>AnyCPU;x64</Platforms>

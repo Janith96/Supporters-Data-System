@@ -1,7 +1,7 @@
 ﻿Imports System.ComponentModel
 Imports System.Data.SQLite
 Public Class suggestions
-    Dim vyear, vdivision, vgndivision, vcomplete, vcategory, vcoordinator, vmobile, vsuggestion As String
+    Dim vyear, vdivision, vgndivision, vcomplete, vcategory, vcoordinator, vmobile, vsuggestion, vseat As String
 
     Dim rowid As String
     Dim editrowid As String
@@ -14,7 +14,7 @@ Public Class suggestions
         Try
             If sqlconnection.State = ConnectionState.Closed Then
                 sqlconnection.Open()
-                Dim sqlstatement As String = "UPDATE `Suggestions` SET `වර්ෂය` = '" & yeartxt.Text & "', `ආසනය` = '" & divisioncombo.Text & "', `කොට්ඨාශය` = '" & divisioncombo.Text & "', `වසම` = '" & GNDivisiontxt.Text & "', `වර්ගය` = '" & categorycombo.Text & "', `සම්බන්ධීකාරක` = '" & coordinatortxt.Text & "', `දුරකථනය` = '" & mobiletext.Text & "', `යෝජනාව` = '" & suggestiontxt.Text & "', `තත්වය` = '" & completecombo.Text & "' WHERE `Suggestions`.`SuggestionID` = '" & editrowid & "';"
+                Dim sqlstatement As String = "UPDATE `Suggestions` SET `වර්ෂය` = '" & yeartxt.Text & "', `ආසනය` = '" & seatcombo.Text & "', `කොට්ඨාශය` = '" & divisioncombo.Text & "', `වසම` = '" & GNDivisiontxt.Text & "', `වර්ගය` = '" & categorycombo.Text & "', `සම්බන්ධීකාරක` = '" & coordinatortxt.Text & "', `දුරකථනය` = '" & mobiletext.Text & "', `යෝජනාව` = '" & suggestiontxt.Text & "', `තත්වය` = '" & completecombo.Text & "' WHERE `Suggestions`.`SuggestionID` = '" & editrowid & "';"
 
                 Dim cmd As SQLiteCommand = New SQLiteCommand
 
@@ -203,7 +203,7 @@ Public Class suggestions
         Try
             If sqlconnection.State = ConnectionState.Closed Then
                 sqlconnection.Open()
-                Dim sqlstatement As String = "INSERT INTO `Suggestions` (`වර්ෂය`, `කොට්ඨාශය`, `වසම`, `වර්ගය`, `සම්බන්ධීකාරක`, `දුරකථනය`, `යෝජනාව`, `තත්වය`) VALUES ('" & yeartxt.Text & "', '" & seatcombo.Text & "', '" & gndivisiontxt.Text & "', '" & categorycombo.Text & "', '" & coordinatortxt.Text & "', '" & mobiletext.Text & "', '" & suggestiontxt.Text & "', '" & completecombo.Text & "');"
+                Dim sqlstatement As String = "INSERT INTO `Suggestions` (`වර්ෂය`,`ආසනය`, `කොට්ඨාශය`, `වසම`, `වර්ගය`, `සම්බන්ධීකාරක`, `දුරකථනය`, `යෝජනාව`, `තත්වය`) VALUES ('" & yeartxt.Text & "', '" & seatcombo.Text & "', '" & divisioncombo.Text & "''" & GNDivisiontxt.Text & "', '" & categorycombo.Text & "', '" & coordinatortxt.Text & "', '" & mobiletext.Text & "', '" & suggestiontxt.Text & "', '" & completecombo.Text & "');"
 
                 Dim cmd As SQLiteCommand = New SQLiteCommand
 
@@ -244,8 +244,9 @@ Public Class suggestions
             localrowid = rowid
             editrowid = localrowid
             yeartxt.Text = vyear
-            seatcombo.Text = vdivision
-            gndivisiontxt.Text = vgndivision
+            seatcombo.Text = vseat
+            divisioncombo.Text = vdivision
+            GNDivisiontxt.Text = vgndivision
             completecombo.SelectedItem = vcomplete
             categorycombo.SelectedItem = vcategory
             coordinatortxt.Text = vcoordinator
@@ -271,6 +272,7 @@ Public Class suggestions
                         i = .CurrentRow.Index
 
                         vyear = .Rows(i).Cells("වර්ෂය").Value.ToString
+                        vseat = .Rows(i).Cells("ආසනය").Value.ToString
                         vdivision = .Rows(i).Cells("කොට්ඨාශය").Value.ToString
                         vgndivision = .Rows(i).Cells("වසම").Value.ToString
                         vcomplete = .Rows(i).Cells("තත්වය").Value.ToString
@@ -307,7 +309,7 @@ Public Class suggestions
         Dim sqlcmd As New SQLiteCommand
         sqlcmd.Connection = conn
         If Searchselectcmb.SelectedIndex = 0 Then
-            sqlcmd.CommandText = "SELECT * FROM Suggestions WHERE වර්ෂය LIKE '%" & Searchtb.Text & "%' OR කොට්ඨාශය LIKE '%" & Searchtb.Text & "%' OR 'වසම' LIKE '%" & Searchtb.Text & "%' OR වර්ගය LIKE '%" & Searchtb.Text & "%' OR සම්බන්ධීකාරක LIKE '%" & Searchtb.Text & "%' OR දුරකථනය LIKE '%" & Searchtb.Text & "%' OR යෝජනාව LIKE '%" & Searchtb.Text & "%' OR තත්වය LIKE '%" & Searchtb.Text & "%'"
+            sqlcmd.CommandText = "SELECT * FROM Suggestions WHERE වර්ෂය LIKE '%" & Searchtb.Text & "%' OR ආසනය LIKE '%" & Searchtb.Text & "%' OR කොට්ඨාශය LIKE '%" & Searchtb.Text & "%' OR 'වසම' LIKE '%" & Searchtb.Text & "%' OR වර්ගය LIKE '%" & Searchtb.Text & "%' OR සම්බන්ධීකාරක LIKE '%" & Searchtb.Text & "%' OR දුරකථනය LIKE '%" & Searchtb.Text & "%' OR යෝජනාව LIKE '%" & Searchtb.Text & "%' OR තත්වය LIKE '%" & Searchtb.Text & "%'"
         Else
             sqlcmd.CommandText = "Select * from Suggestions where " & searchtype & " like '%" & Searchtb.Text & "%'"
         End If

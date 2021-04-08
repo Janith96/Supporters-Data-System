@@ -1,5 +1,13 @@
 ﻿Imports System.ComponentModel
 Imports System.Data.SQLite
+
+'selection query coming from other foms
+Public Module GlobalVariables
+    Public gettingselectedareas As String = Nothing
+    Public selectedareascount As Integer = 0
+End Module
+
+
 Public Class Suggestions_Print
 
     Private Sub Suggestions_Print_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -191,11 +199,11 @@ Public Class Suggestions_Print
                     SQL = SQL & "'" & chkbox.Text & "',"
                 End If
             Next
-        End If
-        'removing last comma
-        SQL = SQL.Substring(0, SQL.Length - 1)
-        SQL = SQL & ")"
 
+            'removing last comma
+            SQL = SQL.Substring(0, SQL.Length - 1)
+            SQL = SQL & ")"
+        End If
 
         'type check
         If alltypesradio.Checked = True Then
@@ -205,18 +213,56 @@ Public Class Suggestions_Print
             SQL = SQL & " AND වර්ගය IN ("
             For Each chkbox As CheckBox In Me.GroupBox2.Controls.OfType(Of CheckBox)()
                 If chkbox.Checked = True Then
-                    SQL = SQL & "" & chkbox.Text & ","
+                    SQL = SQL & "'" & chkbox.Text & "',"
                 End If
             Next
+
+            'removing last comma
+            SQL = SQL.Substring(0, SQL.Length - 1)
+            'closing bracket
+            SQL = SQL & ")"
         End If
-        'removing last comma
-        SQL = SQL.Substring(0, SQL.Length - 1)
-        'closing bracket
-        SQL = SQL & ")"
+
+
+        'area check
+        If allareasradio.Checked = True Then
+
+        End If
+
+        If seatwiseradio.Checked = True Then
+            If selectedareascount > 0 Then
+                SQL = SQL & " AND ආසනය IN ("
+                SQL = SQL & gettingselectedareas
+                SQL = SQL & ")"
+            Else
+                MessageBox.Show("ආසන කිසිවක් තෝරාගෙන නැත. කරැණාකර ආසන එකක් හෝ කීපයක් තෝරන්න.", "වැදගත්", MessageBoxButtons.OK, MessageBoxIcon.Question)
+                Return
+            End If
+        End If
+
+
+
+
 
         'temp syntax check
         TextBox1.Text = SQL
 
+
+
+
+
+
     End Sub
 
+    Private Sub selareabtn_Click(sender As Object, e As EventArgs) Handles selareabtn.Click
+        If seatwiseradio.Checked = True Then
+            select_seat.Show()
+        End If
+        If divisionviseradio.Checked = True Then
+            select_division.Show()
+        End If
+        If gndivisionwiseradio.Checked = True Then
+            select_gndivision.Show()
+        End If
+    End Sub
 End Class
