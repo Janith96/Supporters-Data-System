@@ -1,12 +1,13 @@
 ﻿Imports System.ComponentModel
 Imports System.Data.SQLite
+Imports System
 Public Class suggestions
+
     Dim vyear, vdivision, vgndivision, vcomplete, vcategory, vcoordinator, vmobile, vsuggestion, vseat As String
 
     Dim rowid As String
     Dim editrowid As String
     Dim searchtype As String
-
     Private Sub Updatebtn_Click(sender As Object, e As EventArgs) Handles Updatebtn.Click
 
         Dim sqlconnection As New SQLiteConnection("Data Source = C:\Users\janit\Desktop\Suggestions.db")
@@ -146,6 +147,7 @@ Public Class suggestions
     End Sub
 
     Private Sub suggestions_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         'loading table to datagrid
         Dim conn As New SQLiteConnection("Data Source = C:\Users\janit\Desktop\Suggestions.db")
         conn.Open()
