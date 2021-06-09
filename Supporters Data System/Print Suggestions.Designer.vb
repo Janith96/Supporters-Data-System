@@ -56,12 +56,15 @@ Partial Class Print_Suggestions
         Me.fewyearsradio = New System.Windows.Forms.RadioButton()
         Me.oneyearradio = New System.Windows.Forms.RadioButton()
         Me.GroupBoxyear = New System.Windows.Forms.GroupBox()
-        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
+        Me.ToolStrip1 = New System.Windows.Forms.StatusStrip()
+        Me.ToolStripTotalRecords = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolStripSelectedRecords = New System.Windows.Forms.ToolStripStatusLabel()
         Me.GroupBox5.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBoxyear.SuspendLayout()
+        Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'declinedchkbox
@@ -442,21 +445,35 @@ Partial Class Print_Suggestions
         Me.GroupBoxyear.TabStop = False
         Me.GroupBoxyear.Text = "වර්ෂය"
         '
-        'StatusStrip1
+        'ToolStrip1
         '
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 608)
-        Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(950, 22)
-        Me.StatusStrip1.SizingGrip = False
-        Me.StatusStrip1.TabIndex = 19
-        Me.StatusStrip1.Text = "StatusStrip1"
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripTotalRecords, Me.ToolStripSelectedRecords})
+        Me.ToolStrip1.Location = New System.Drawing.Point(0, 608)
+        Me.ToolStrip1.Name = "ToolStrip1"
+        Me.ToolStrip1.Size = New System.Drawing.Size(950, 22)
+        Me.ToolStrip1.SizingGrip = False
+        Me.ToolStrip1.TabIndex = 19
+        '
+        'ToolStripTotalRecords
+        '
+        Me.ToolStripTotalRecords.Name = "ToolStripTotalRecords"
+        Me.ToolStripTotalRecords.Size = New System.Drawing.Size(119, 17)
+        Me.ToolStripTotalRecords.Text = "ToolStripStatusLabel1"
+        '
+        'ToolStripSelectedRecords
+        '
+        Me.ToolStripSelectedRecords.Name = "ToolStripSelectedRecords"
+        Me.ToolStripSelectedRecords.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.ToolStripSelectedRecords.Size = New System.Drawing.Size(785, 17)
+        Me.ToolStripSelectedRecords.Spring = True
+        Me.ToolStripSelectedRecords.Text = "ToolStripStatusLabel2"
         '
         'Print_Suggestions
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(950, 630)
-        Me.Controls.Add(Me.StatusStrip1)
+        Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.Printbtn)
         Me.Controls.Add(Me.Resetbtn)
@@ -477,6 +494,8 @@ Partial Class Print_Suggestions
         Me.GroupBox2.PerformLayout()
         Me.GroupBoxyear.ResumeLayout(False)
         Me.GroupBoxyear.PerformLayout()
+        Me.ToolStrip1.ResumeLayout(False)
+        Me.ToolStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -516,5 +535,7 @@ Partial Class Print_Suggestions
     Friend WithEvents fewyearsradio As RadioButton
     Friend WithEvents oneyearradio As RadioButton
     Friend WithEvents GroupBoxyear As GroupBox
-    Friend WithEvents StatusStrip1 As StatusStrip
+    Friend WithEvents ToolStrip1 As StatusStrip
+    Friend WithEvents ToolStripTotalRecords As ToolStripStatusLabel
+    Friend WithEvents ToolStripSelectedRecords As ToolStripStatusLabel
 End Class

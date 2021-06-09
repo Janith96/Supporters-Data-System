@@ -32,7 +32,8 @@ Public Class Print_Suggestions
             .CommandType = CommandType.Text
             .Connection = conn
             count = Convert.ToString(cmd.ExecuteScalar())
-            'ToolStripTotalRecords.Text = "Total Records : " & count & ""
+            ToolStripTotalRecords.Text = "Total Records : " & count & ""
+            ToolStripSelectedRecords.Text = "Selected Records : " & count & ""
         End With
 
 
@@ -271,6 +272,12 @@ Public Class Print_Suggestions
         sqldt.Load(sqlread)
         sqlread.Close()
         DataGridView1.DataSource = sqldt
+
+        'selected rows count
+        Dim selreccount As Integer = DataGridView1.RowCount
+        selreccount = selreccount - 1
+        ToolStripSelectedRecords.Text = "Selected Records : " & selreccount.ToString & ""
+
         conn.Close()
 
 
