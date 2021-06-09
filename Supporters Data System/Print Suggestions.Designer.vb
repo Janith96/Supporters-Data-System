@@ -59,6 +59,7 @@ Partial Class Print_Suggestions
         Me.ToolStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripTotalRecords = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripSelectedRecords = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.GroupBox5.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
@@ -251,7 +252,7 @@ Partial Class Print_Suggestions
         Me.Printbtn.Name = "Printbtn"
         Me.Printbtn.Size = New System.Drawing.Size(149, 46)
         Me.Printbtn.TabIndex = 17
-        Me.Printbtn.Text = "Print"
+        Me.Printbtn.Text = "Export"
         Me.Printbtn.UseVisualStyleBackColor = True
         '
         'Resetbtn
@@ -463,10 +464,11 @@ Partial Class Print_Suggestions
         'ToolStripSelectedRecords
         '
         Me.ToolStripSelectedRecords.Name = "ToolStripSelectedRecords"
-        Me.ToolStripSelectedRecords.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.ToolStripSelectedRecords.Size = New System.Drawing.Size(785, 17)
+        Me.ToolStripSelectedRecords.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.ToolStripSelectedRecords.Size = New System.Drawing.Size(816, 17)
         Me.ToolStripSelectedRecords.Spring = True
         Me.ToolStripSelectedRecords.Text = "ToolStripStatusLabel2"
+        Me.ToolStripSelectedRecords.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Print_Suggestions
         '
@@ -484,7 +486,7 @@ Partial Class Print_Suggestions
         Me.Controls.Add(Me.GroupBoxyear)
         Me.Name = "Print_Suggestions"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Print Suggestions"
+        Me.Text = "Export Suggestions"
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox5.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -538,4 +540,5 @@ Partial Class Print_Suggestions
     Friend WithEvents ToolStrip1 As StatusStrip
     Friend WithEvents ToolStripTotalRecords As ToolStripStatusLabel
     Friend WithEvents ToolStripSelectedRecords As ToolStripStatusLabel
+    Friend WithEvents SaveFileDialog1 As SaveFileDialog
 End Class
