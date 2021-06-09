@@ -7,11 +7,8 @@ Public Module GlobalVariables
     Public selectedareascount As Integer = 0
 End Module
 
-
-Public Class Suggestions_Print
-
-    Private Sub Suggestions_Print_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+Public Class Print_Suggestions
+    Private Sub Print_Suggestions_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'loading table to datagrid
         Dim conn As New SQLiteConnection("Data Source = C:\Users\janit\Desktop\Suggestions.db")
         conn.Open()
@@ -35,7 +32,7 @@ Public Class Suggestions_Print
             .CommandType = CommandType.Text
             .Connection = conn
             count = Convert.ToString(cmd.ExecuteScalar())
-            ToolStripTotalRecords.Text = "Total Records : " & count & ""
+            'ToolStripTotalRecords.Text = "Total Records : " & count & ""
         End With
 
 
@@ -49,9 +46,7 @@ Public Class Suggestions_Print
         allstatusradio.Checked = True
         alltypesradio.Checked = True
         allareasradio.Checked = True
-
     End Sub
-
 
     'groupbox subcomponent enable/disable
     '-------------------------------
@@ -251,14 +246,32 @@ Public Class Suggestions_Print
             End If
         End If
 
+        If gndivisionwiseradio.Checked = True Then
+            If selectedareascount > 0 Then
+                SQL = SQL & " AND වසම IN ("
+                SQL = SQL & gettingselectedareas
+                SQL = SQL & ")"
+            Else
+                MessageBox.Show("වසම් කිසිවක් තෝරාගෙන නැත. කරැණාකර වසම් එකක් හෝ කීපයක් තෝරන්න.", "වැදගත්", MessageBoxButtons.OK, MessageBoxIcon.Question)
+                Return
+            End If
+        End If
 
+        DataGridView1.DataSource = Nothing
+        'loading final query to datagrid
+        Dim conn As New SQLiteConnection("Data Source = C:\Users\janit\Desktop\Suggestions.db")
+        conn.Open()
+        'loading query
+        Dim sqlcmd As New SQLiteCommand
+        sqlcmd.Connection = conn
+        sqlcmd.CommandText = "" & SQL & ""
 
-        'temp syntax check
-        TextBox1.Text = SQL
-
-
-
-
+        Dim sqlread As SQLiteDataReader = sqlcmd.ExecuteReader
+        Dim sqldt As New DataTable
+        sqldt.Load(sqlread)
+        sqlread.Close()
+        DataGridView1.DataSource = sqldt
+        conn.Close()
 
 
     End Sub
@@ -274,4 +287,5 @@ Public Class Suggestions_Print
             select_gndivision.Show()
         End If
     End Sub
+
 End Class
